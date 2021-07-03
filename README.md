@@ -1,4 +1,6 @@
-![Alt text](./images/1.png?raw=true)
-![Alt text](./images/2.png?raw=true)
-![Alt text](./images/3.png?raw=true)
-![Alt text](./images/4.png?raw=true)
+<p align="center">
+  <img src="./images/1.png" width="320" height="480" title="hover text">
+  <img src="./images/2.png" width="320" height="480" title="hover text">
+  <img src="./images/3.png" width="320" height="480" title="hover text">
+  <img src="./images/4.png" width="320" height="480" title="hover text">
+</p>
