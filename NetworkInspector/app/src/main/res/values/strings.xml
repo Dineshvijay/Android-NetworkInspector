@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">CustomWebView</string>
+    <string name="inspector">Network Inspector</string>
+    <string name="callName">ExtendedSession</string>
+    <string name="url">https://google.com</string>
+    <string name="call_detail">hello world</string>
+    <string-array name="NetworkFilter">
+        <item>All</item>
+        <item>XHR</item>
+        <item>HTML</item>
+        <item>CSS</item>
+        <item>JS</item>
+    </string-array>
+    <string-array name="ResponseFilter">
+        <item>All</item>
+        <item>Header</item>
+        <item>Request</item>
+        <item>Response</item>
+        <item>Status</item>
+        <item>Cookies</item>
+    </string-array>
+    <string-array name="LogFilter">
+        <item>All</item>
+        <item>Error</item>
+        <item>Warning</item>
+    </string-array>
+</resources>
