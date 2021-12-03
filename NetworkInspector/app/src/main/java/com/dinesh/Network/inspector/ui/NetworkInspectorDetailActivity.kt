@@ -55,44 +55,50 @@ class NetworkInspectorDetailActivity : AppCompatActivity() {
 
     fun parseAll() {
         val networkIntercept = intent.getSerializableExtra("NetworkInspect") as NetworkInspect
-        val htmlText = "<h2>URL:</h2><p> ${networkIntercept.url}</p>\n" +
-                "<h2>Type: ${networkIntercept.type}</h2>\n" +
-                "<h2>Status: ${networkIntercept.status}</h2>\n" +
-                "<h2>Request headers:</h2><p>${networkIntercept.requestHeaders}</p>\n" +
-                "<h2>Response headers:</h2><p>${networkIntercept.responseHeaders}</p>\n" +
-                "<h2>Response:</h2><p>${networkIntercept.response}</p>\n" +
-                "<h2>Error:</h2><p>${networkIntercept.error}</p>"
+        val htmlText = "<b>URL:</b><p> ${networkIntercept.url}</p>\n" +
+                "<b>Type:</b><p>${networkIntercept.type}</p>\n" +
+                "<b>Status:</b> <p>${networkIntercept.status}</p>\n" +
+                "<b>Request headers:</b><p>${networkIntercept.requestHeaders}</p>\n" +
+                "<b>Method:</b><p>${networkIntercept.method}</p>\n" +
+                "<b>Payload:</b><p>${networkIntercept.payload}</p>\n" +
+                "<b>Response headers:</b><p>${networkIntercept.responseHeaders}</p>\n" +
+                "<b>Response:</b><p>${networkIntercept.response}</p>\n" +
+                "<b>Error:</b><p>${networkIntercept.error}</p>"
         callDetailTextView.text = Html.fromHtml(htmlText, 0)
     }
 
     fun parseHeaders() {
         val networkIntercept = intent.getSerializableExtra("NetworkInspect") as NetworkInspect
-        val htmlText = "<h2>URL:</h2><p> ${networkIntercept.url}</p>\n" +
-                "<h2>Type: ${networkIntercept.type}</h2>\n" +
-                "<h2>Status: ${networkIntercept.status}</h2>\n" +
-                "<h2>Request headers:</h2><p>${networkIntercept.requestHeaders}</p>\n" +
-                "<h2>Error:</h2><p>${networkIntercept.error}</p>"
+        val htmlText = "<b>URL:</b><p> ${networkIntercept.url}</p>\n" +
+                "<b>Type:</b><p>${networkIntercept.type}</p>\n" +
+                "<b>Status:</b> <p>${networkIntercept.status}</p>\n" +
+                "<b>Request headers:</b><p>${networkIntercept.requestHeaders}</p>\n" +
+                "<b>Method:</b><p>${networkIntercept.method}</p>\n" +
+                "<b>Payload:</b><p>${networkIntercept.payload}</p>\n" +
+                "<b>Error:</b><p>${networkIntercept.error}</p>"
         callDetailTextView.text = Html.fromHtml(htmlText, 0)
     }
 
     fun parseRequest() {
         val networkIntercept = intent.getSerializableExtra("NetworkInspect") as NetworkInspect
-        val htmlText = "<h2>Request:</h2><p>${networkIntercept.requestHeaders}</p>\n"
+        val htmlText = "<b>Request:</b><p>${networkIntercept.requestHeaders}</p>\n"
         callDetailTextView.text = Html.fromHtml(htmlText, 0)
     }
 
     fun parseResponse() {
         val networkIntercept = intent.getSerializableExtra("NetworkInspect") as NetworkInspect
-        val htmlText = "<h2>Response:</h2><p>${networkIntercept.response}</p>\n"
+        val htmlText = "<b>Response:</b><p>${networkIntercept.response}</p>\n"
         callDetailTextView.text = Html.fromHtml(htmlText, 0)
     }
 
     fun parseError() {
         val networkIntercept = intent.getSerializableExtra("NetworkInspect") as NetworkInspect
-        val htmlText = "<h2>URL:</h2><p> ${networkIntercept.url}</p>\n" +
-                "<h2>Type: ${networkIntercept.type}</h2>\n" +
-                "<h2>Status: ${networkIntercept.status}</h2>\n" +
-                "<h2>Error:</h2><p>${networkIntercept.error}</p>"
+        val htmlText = "<b>URL:</b><p> ${networkIntercept.url}</p>\n" +
+                "<b>Type:</b><p>${networkIntercept.type}</p>\n" +
+                "<b>Status:</b> <p>${networkIntercept.status}</p>\n" +
+                "<b>Method:</b><p>${networkIntercept.method}</p>\n" +
+                "<b>Body:</b><p>${networkIntercept.payload}</p>\n" +
+                "<b>Error:</b><p>${networkIntercept.error}</p>"
         callDetailTextView.text = Html.fromHtml(htmlText, 0)
     }
 }

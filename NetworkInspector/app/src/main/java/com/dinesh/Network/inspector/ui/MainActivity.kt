@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, LogInterface {
     lateinit var logFAB: FloatingActionButton
     lateinit var viewModel: MainViewModel
     lateinit var progressBar: ProgressBar
-
+    private val scriptFile: String = "xhr_intercept.js"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -48,19 +48,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, LogInterface {
     }
 
 
-    fun configureWebView() {
+    private fun configureWebView() {
         WebView.setWebContentsDebuggingEnabled(true);
         homeWebView.settings.domStorageEnabled = true
         homeWebView.settings.javaScriptEnabled = true
+        homeWebView.settings.userAgentString = "Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Mobile Safari/537.36"
         homeWebView.addJavascriptInterface(webAppInterface, "Android")
-        val logScript = assets.open("log_script.js").reader().readText()
+        val logScript = assets.open(scriptFile).reader().readText()
         homeWebView.webViewClient = WebAppClient(webAppInterface, logScript)
         homeWebView.webChromeClient = ChromeClient(this)
         loadWebView()
     }
 
-    fun loadWebView() {
-        val url: String = "https://www.tutorialkart.com/kotlin-tutorial/"
+    private fun loadWebView() {
+        val url = "https://www.ikea.com/in/en/"
         homeWebView.loadUrl(url)
     }
 
@@ -75,7 +76,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, LogInterface {
         }
     }
 
-    fun showMenu() {
+    private fun showMenu() {
         if(networkFAB.visibility == View.GONE && logFAB.visibility == View.GONE) {
             networkFAB.visibility = View.VISIBLE
             logFAB.visibility = View.VISIBLE
@@ -85,12 +86,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, LogInterface {
         }
     }
 
-    fun showNetworkInspector() {
+    private fun showNetworkInspector() {
         val intent = Intent(this, NetworkInspectActivity::class.java)
         startActivity(intent)
     }
 
-    fun showLogInspector() {
+    private fun showLogInspector() {
         val intent = Intent(this, ConsoleLogActivity::class.java)
         startActivity(intent)
     }

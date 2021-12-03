@@ -31,7 +31,7 @@ class NetworkInspectorAdapter(private var dataStore: List<NetworkInspect>,
         val networkInspect = dataStore[position]
         holder.callName.text = networkInspect.name
         holder.url.text = networkInspect.url
-        holder.statusIcon.setImageDrawable(getStatusIcon(networkInspect.status))
+        holder.statusIcon.setImageDrawable(getStatusIcon(networkInspect.status ?: "400"))
         holder.itemView.setOnClickListener {
             networkInterface.selectedItem(networkInspect)
         }

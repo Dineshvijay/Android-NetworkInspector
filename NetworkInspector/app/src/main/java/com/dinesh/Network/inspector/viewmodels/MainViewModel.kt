@@ -1,14 +1,16 @@
 package com.dinesh.Network.inspector.viewmodels
 
 import android.net.Uri
+import android.util.Log
 import android.webkit.ConsoleMessage
 import androidx.lifecycle.ViewModel
 import com.dinesh.Network.inspector.model.AppStore
 import com.dinesh.Network.inspector.model.NetworkInspect
+import com.google.gson.Gson
 import org.json.JSONObject
 
 class MainViewModel: ViewModel() {
-
+    private var gson = Gson()
     fun storeLogMessage(message: String) {
         val jsonObject = JSONObject(message)
         val urlString = jsonObject["url"].toString()
@@ -18,6 +20,8 @@ class MainViewModel: ViewModel() {
         val status = jsonObject["status"].toString()
         val error = jsonObject["error"].toString()
         val type = jsonObject["type"].toString()
+        val body = jsonObject["payload"].toString()
+        val method = jsonObject["method"].toString()
         val lastPathSegment = Uri.parse(urlString).lastPathSegment
         val paths = lastPathSegment?.split(".")
         val name = paths?.first() ?: urlString
@@ -25,7 +29,7 @@ class MainViewModel: ViewModel() {
         if(type.lowercase() == "xhr") {
             callType = type
         }
-        val networkInspect = NetworkInspect(name, urlString, status, requestHeaders, responseHeaders , response, callType, error)
+        val networkInspect = NetworkInspect(name, urlString, status, requestHeaders, responseHeaders, response, callType, body, method, error)
         AppStore.networkCallList.add(networkInspect)
     }
 

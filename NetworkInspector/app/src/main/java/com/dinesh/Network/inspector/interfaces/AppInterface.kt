@@ -8,7 +8,8 @@ interface NetworkInspectInterface {
 }
 
 interface LogInterface {
-    fun webRequestLog(message: String)
-    fun webConsoleLog(consoleMessage : ConsoleMessage)
-    fun stopLoader()
+    fun webRequestLog(message: String){}
+    fun webConsoleLog(consoleMessage : ConsoleMessage){}
+    fun stopLoader(){}
+    fun injectScript(script: String){}
 }

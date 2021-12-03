@@ -11,9 +11,12 @@ class NIViewModel: ViewModel() {
     }
 
     fun getFilterResult(name: String): List<NetworkInspect> {
+        var filter = name
         if (name.lowercase() == "all") {
             return AppStore.networkCallList
+        } else if(name.lowercase() == "js") {
+            filter = "javascript"
         }
-        return AppStore.networkCallList.filter { it.type.lowercase() == name.lowercase() }
+        return AppStore.networkCallList.filter { it.type?.lowercase() == filter.lowercase() }
     }
 }
